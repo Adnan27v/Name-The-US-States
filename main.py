@@ -33,6 +33,13 @@ guessed_states = []
 
 while game_on:
     user_answer = screen.textinput(title=f"{correct}/50 Correct | Guess the next state",prompt="What's another state name?")
+    
+    if user_answer is None or user_answer.lower() == "exit":
+        #If user clicks cancel or types exit, the game will end and the screen will close
+        game_on = False
+        screen.bye()
+        break
+    
     for state in state_names:
         if (user_answer.lower() not in guessed_states) and (user_answer.lower() == state.lower()):
             correct += 1
@@ -51,5 +58,18 @@ while game_on:
     if time.time() >= close_time:
         game_on = False
         screen.bye()
+
+states_not_guessed = []
+
+for state in state_names:
+    if state.lower() not in guessed_states:
+        states_not_guessed.append(state)
+
+not_guessed = pd.DataFrame(states_not_guessed)
+not_guessed.to_csv("Not_Guessed.csv")
+
+print(f"You missed the following states:")
+
+print(not_guessed)
 
 print(f"\n\nThanks for playing the game. Final score = {correct}/50.\n")

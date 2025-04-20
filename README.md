@@ -10,6 +10,8 @@ A fun and educational Python game that helps users learn and memorize the 50 sta
 - 10-minute time limit for added challenge
 - Score tracking showing progress (X/50 states)
 - Case-insensitive input for user convenience
+- Ability to exit the game at any time by typing "exit" or clicking cancel
+- End-game summary showing missed states
 
 ## 📁 Project Structure
 
@@ -17,6 +19,7 @@ A fun and educational Python game that helps users learn and memorize the 50 sta
 - **50_states.csv**: Contains state names and their coordinates for map placement
 - **blank_states_img.gif**: The blank US map used as the game background
 - **requirements.txt**: Lists the required Python packages
+- **Not_Guessed.csv**: Generated file containing states you missed (created after game ends)
 
 ## 🚀 Getting Started
 
@@ -56,14 +59,22 @@ A fun and educational Python game that helps users learn and memorize the 50 sta
 5. If incorrect:
    - The guess will be ignored
    - You can try again
-6. The game ends when you either:
+6. You can exit the game at any time by:
+   - Typing "exit" in the input prompt
+   - Clicking the cancel button
+7. The game ends when you either:
    - Name all 50 states correctly
    - The 10-minute timer runs out
+   - Choose to exit the game
+8. After the game ends:
+   - Your final score will be displayed
+   - A list of missed states will be shown
+   - A CSV file (Not_Guessed.csv) will be generated with the missed states
 
 ## 📦 Dependencies
 
 - `turtle`: For creating the graphical interface
-- `pandas`: For handling the state data
+- `pandas`: For handling the state data and generating the missed states CSV
 - `time`: For implementing the game timer
 
 ## 📝 License
@@ -83,3 +94,5 @@ Contributions are welcome! Feel free to:
 - Total states to guess: 50
 - Time limit: 10 minutes
 - Score format: X/50 states correct
+- Exit options: Type "exit" or click cancel
+- Learning aid: Automatic generation of missed states list
